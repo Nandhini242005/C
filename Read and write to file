@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    FILE *file;
+    
+    // Writing to file
+    file = fopen("example.txt", "w");
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    fprintf(file, "Hello, this is a file!");
+    fclose(file);
+    
+    // Reading from file
+    file = fopen("example.txt", "r");
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    
+    char content[100];
+    fgets(content, 100, file);
+    printf("File Content: %s\n", content);
+    fclose(file);
+    
+    return 0;
+}
